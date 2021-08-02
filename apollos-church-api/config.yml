@@ -90,6 +90,7 @@ ROCK_MAPPINGS:
     PersonaId: 210
 
   ALL_CONTENT_CHANNELS:
+    - 371 # Featured App Content
     - 364 # Weekly Challenges
     - 363 # Daily Scripture
     - 39 # Blog
@@ -122,6 +123,14 @@ TABS:
             limit: 3
       type: HorizontalCardList
       title: Weekly Challenges
+    - algorithms:
+        - type: CONTENT_FEED
+          arguments:
+            channelIds:
+              - 371
+            limit: 3
+      type: VerticalCardList
+      title: Featured App Content
 
   WATCH:
     - algorithms:
