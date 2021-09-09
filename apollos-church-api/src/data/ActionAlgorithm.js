@@ -11,14 +11,14 @@ class dataSource extends ActionAlgorithm.dataSource {
   };
 
   async taggedContentFeedAlgorithm({
-    tag = '',
+    tag,
     channelIds = [],
     limit = 20,
     skip = 0,
   } = {}) {
     const { ContentItem } = this.context.dataSources;
 
-    const items = await ContentItem.byContentChannelIds(channelIds, tag)
+    const items = await ContentItem.byTaggedContent(channelIds, tag)
       .top(limit)
       .skip(skip)
       .get();
