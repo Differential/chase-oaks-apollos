@@ -10,15 +10,11 @@ class dataSource extends ActionAlgorithm.dataSource {
     TAGGED_CONTENT_FEED: this.taggedContentFeedAlgorithm.bind(this),
   };
 
-  async taggedContentFeedAlgorithm({
-    tag,
-    channelIds = [],
-    limit = 20,
-    skip = 0,
-  } = {}) {
+  async taggedContentFeedAlgorithm({ tag, limit = 20, skip = 0 } = {}) {
     const { ContentItem } = this.context.dataSources;
 
-    const items = await ContentItem.byTaggedContent(channelIds, tag)
+    const cursor = await ContentItem.byTaggedContent(tag);
+    const items = await cursor
       .top(limit)
       .skip(skip)
       .get();

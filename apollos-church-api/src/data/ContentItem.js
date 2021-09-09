@@ -42,23 +42,24 @@ class dataSource extends ContentItem.dataSource {
     return features;
   };
 
-  bytaggedContent = async (channelIds = [], tag) => {
-    // 117 is the Ministries defined type
-    const { guid } = await this.request('DefinedValues')
-      .filter(`DefinedTypeId eq XXX and Value eq '${tag}'`)
+  byTaggedContent = async (tag) => {
+    if (!tag) return this.request().empty();
+
+    // 212 is App Content Category defined type
+    const value = await this.request('DefinedValues')
+      .filter(`DefinedTypeId eq 212 and Value eq '${tag}'`)
       .first();
+    if (!value?.guid) return this.request().empty();
+
     const attributeValues = await this.request('AttributeValues')
-      .expand('Attribute')
       .filter(
-        // 208 is a Rock Content Item
-        `Attribute/Name eq 'AppTags' and Attribute/EntityTypeId eq 208 and Value eq '${guid}'`
+        // 13054 is the Category attribute
+        `AttributeId eq 13054 and Value eq '${value.guid}'`
       )
       .get();
     const contentIds = attributeValues.map(({ entityId }) => entityId);
 
     return this.getFromIds(contentIds)
-      .filterOneOf(channelIds.map((id) => `ContentChannelId eq ${id}`))
-      .andFilter(this.LIVE_CONTENT())
       .cache({ ttl: 60 })
       .orderBy('StartDateTime', 'desc');
   };

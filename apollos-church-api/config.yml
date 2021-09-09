@@ -177,44 +177,37 @@ TABS:
     - algorithms:
         - type: TAGGED_CONTENT_FEED
           arguments:
-            channelIds:
-              - 39
+            tag: Faith
       type: HorizontalCardList
       subtitle: Faith
     - algorithms:
         - type: TAGGED_CONTENT_FEED
           arguments:
             tag: Hope
-            channelIds:
-              - 39
       type: HorizontalCardList
       subtitle: Hope
     - algorithms:
         - type: TAGGED_CONTENT_FEED
           arguments:
-            channelIds:
-              - 39
+            tag: Love
       type: HorizontalCardList
       subtitle: Love
     - algorithms:
         - type: TAGGED_CONTENT_FEED
           arguments:
-            channelIds:
-              - 39
+            tag: Parenting
       type: HorizontalCardList
       subtitle: Parenting
     - algorithms:
         - type: TAGGED_CONTENT_FEED
           arguments:
-            channelIds:
-              - 39
+            tag: Mental Health
       type: HorizontalCardList
       subtitle: Mental Health
     - algorithms:
         - type: TAGGED_CONTENT_FEED
           arguments:
-            channelIds:
-              - 39
+            tag: Culture and News
       type: HorizontalCardList
       subtitle: Culture and News
 
