@@ -36,7 +36,7 @@ import {
   Person as RockPerson,
   // ContentItem as RockContentItem,
   Feature as RockFeature,
-  ActionAlgorithm as RockActionAlgorithm,
+  // ActionAlgorithm as RockActionAlgorithm,
 } from '@apollosproject/data-connector-rock';
 
 import {
@@ -60,6 +60,7 @@ import {
 import * as Theme from './theme';
 import * as Vimeo from './Vimeo';
 import * as RockContentItem from './ContentItem';
+import * as RockActionAlgorithm from './ActionAlgorithm';
 
 // This modules ties together certain updates so they occurs in both Rock and Postgres.
 // Will be eliminated in the future through an enhancement to the Shovel

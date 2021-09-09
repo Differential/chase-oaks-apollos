@@ -175,42 +175,43 @@ TABS:
           id: 39
           name: Articles
     - algorithms:
-        - type: CONTENT_FEED
+        - type: TAGGED_CONTENT_FEED
           arguments:
             channelIds:
               - 39
       type: HorizontalCardList
       subtitle: Faith
     - algorithms:
-        - type: CONTENT_FEED
+        - type: TAGGED_CONTENT_FEED
           arguments:
+            tag: Hope
             channelIds:
               - 39
       type: HorizontalCardList
       subtitle: Hope
     - algorithms:
-        - type: CONTENT_FEED
+        - type: TAGGED_CONTENT_FEED
           arguments:
             channelIds:
               - 39
       type: HorizontalCardList
       subtitle: Love
     - algorithms:
-        - type: CONTENT_FEED
+        - type: TAGGED_CONTENT_FEED
           arguments:
             channelIds:
               - 39
       type: HorizontalCardList
       subtitle: Parenting
     - algorithms:
-        - type: CONTENT_FEED
+        - type: TAGGED_CONTENT_FEED
           arguments:
             channelIds:
               - 39
       type: HorizontalCardList
       subtitle: Mental Health
     - algorithms:
-        - type: CONTENT_FEED
+        - type: TAGGED_CONTENT_FEED
           arguments:
             channelIds:
               - 39

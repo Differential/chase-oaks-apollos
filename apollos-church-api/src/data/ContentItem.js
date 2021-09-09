@@ -41,6 +41,18 @@ class dataSource extends ContentItem.dataSource {
     }
     return features;
   };
+
+  byContentChannelIds = (ids = [], tag = '') => {
+    if (!tag)
+      return this.request()
+        .filterOneOf(ids.map((id) => `ContentChannelId eq ${id}`))
+        .andFilter(this.LIVE_CONTENT())
+        .cache({ ttl: 60 })
+        .orderBy('StartDateTime', 'desc');
+
+    // TODO
+    return this.request().empty();
+  };
 }
 
 export { resolver, schema, dataSource };
