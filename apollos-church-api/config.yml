@@ -122,7 +122,7 @@ TABS:
       title: Daily Scripture
       type: VerticalCardList
     - algorithms:
-        - type: CONTENT_FEED
+        - type: PRIORITY_CONTENT_FEED
           arguments:
             channelIds:
               - 364

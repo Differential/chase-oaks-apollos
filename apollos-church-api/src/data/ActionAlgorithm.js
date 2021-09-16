@@ -8,7 +8,31 @@ class dataSource extends ActionAlgorithm.dataSource {
   ACTION_ALGORITHMS = {
     ...this.ACTION_ALGORITHMS,
     TAGGED_CONTENT_FEED: this.taggedContentFeedAlgorithm.bind(this),
+    PRIORITY_CONTENT_FEED: this.priorityContentFeedAlgorithm.bind(this),
   };
+
+  async priorityContentFeedAlgorithm({
+    channelIds = [],
+    limit = 20,
+    skip = 0,
+  } = {}) {
+    const { ContentItem } = this.context.dataSources;
+    const items = await ContentItem.byContentChannelIds(channelIds)
+      .top(limit)
+      .skip(skip)
+      .sort([{ field: 'Priority', direction: 'asc' }])
+      .get();
+
+    return items.map((item, i) => ({
+      id: `${item.id}${i}`,
+      title: item.title,
+      subtitle: get(item, 'contentChannel.name'),
+      relatedNode: { ...item, __type: ContentItem.resolveType(item) },
+      image: ContentItem.getCoverImage(item),
+      action: 'READ_CONTENT',
+      summary: ContentItem.createSummary(item),
+    }));
+  }
 
   async taggedContentFeedAlgorithm({ tag, limit = 20, skip = 0 } = {}) {
     const { ContentItem } = this.context.dataSources;
