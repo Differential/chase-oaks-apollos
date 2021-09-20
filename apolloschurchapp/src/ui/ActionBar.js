@@ -9,18 +9,18 @@ const Toolbar = () => (
       <ActionBar>
         <ActionBarItem
           onPress={() => openUrl('https://www.chaseoaks.org/groups')}
-          icon="groups"
+          icon="users"
           label="Groups"
         />
         <ActionBarItem
           onPress={() => Linking.openURL('https://www.chaseoaks.org/givenow')}
-          icon="credit"
+          icon="hands-heart"
           label="Give"
         />
 
         <ActionBarItem
           onPress={() => openUrl('https://www.chaseoaks.org/serve')}
-          icon="like"
+          icon="people-carry"
           label="Serve"
         />
       </ActionBar>
