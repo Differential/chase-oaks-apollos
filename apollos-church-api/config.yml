@@ -58,9 +58,50 @@ BIBLE_API:
 CLOUDINARY:
   URL: ${CLOUDINARY_URL}
 SUGGESTED_FOLLOWS:
-# TODO: find out what these should actually be.
-  - jjones@chaseoaks.org
-  - jwarren@chaseoaks.org
+  - 
+    id: ae86525c-8dd1-453b-a12d-0d70c8ac13c2 # Jeff Jones
+  - 
+    id: 798df5a5-4163-426e-b6ab-1116aafa12c6 # Jack Warren
+  - 
+    id: 45dab87e-aaed-489d-ba92-f39ed1250457 # Glen Brechner
+  - 
+    id: b8d6892a-1ee2-4a0f-a724-fbc68d17e43e # Eric Torrence
+  - 
+    id: 3361130b-dd2d-42f1-826a-b3eb15537d6a # Greg Holmes
+  - 
+    id: 38005b8b-1258-4e3c-9522-4dd116824798 # Cindy Park
+  - 
+    id: 529e9baa-56a9-4a0f-8b26-aee07656cf21 # Katy Bailey
+  - 
+    id: 97810337-0769-404d-bc83-66c9dca45b02 # Ashley Khastehdel
+  - 
+    id: c72b5797-595b-4eab-aa56-509d91513bdf # Julissa Estrada
+  -
+    id: 3615b522-3adb-48c0-81c6-29750be26019 # Matt Brandenburg
+  -
+    id: 7857184c-ff22-4fb5-829a-b05fb9ee8e05 # Peter Park
+    campusId: f1261efa-0758-4c93-8928-0cb1fc76ab5b # Legacy
+  - 
+    id: 91e31f46-304e-4c89-bd3f-77079d56af96 # Jeffrey John Jones
+    campusId: 254732b9-3c5c-45cd-b02b-37e750e6f057 # Richardson
+  -
+    id: 45e5075e-8012-4995-9d07-132308901339 # OnDat Truong
+    campusId: 254732b9-3c5c-45cd-b02b-37e750e6f057 # Richardson
+  -
+    id: 77c2f4b2-69bc-4d8e-9137-3e63af6baa71 # Todd Baughman
+    campusId: f881a04c-2dff-4b72-91db-9cc85f775786 # Woodbridge
+  -
+    id: c56f2626-74b0-4ffc-9f22-b41e9177f43a # Jeremy LeBlanc
+    campusId: 99e77adc-4999-4f7a-915f-c2cc956c9e24 # Sloan Creek
+  -
+    id: b9aefe92-37a7-4ffc-a4dd-a9504222db1f # Jason Lee
+    campusId: 99e77adc-4999-4f7a-915f-c2cc956c9e24 # Sloan Creek
+  -
+    id: 56f7a61e-1e00-4b2a-801c-498d6ddaba80 # Matt Snellings
+    campusId: 771fc14b-1f54-4eb9-822f-dee915f5c8e0 # San Antonio
+  -
+    id: 865f0d25-6fa1-4ec6-a873-75735eaca9fc # David Harms
+    campusId: 6b53ffc8-8bb1-44b0-94c5-d497b1e04ee9 # En Espanol
 
 # This key holds various properties that allow our GraphQL server to map to your Rock Instance
 ROCK_MAPPINGS:
