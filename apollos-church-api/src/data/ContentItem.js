@@ -14,7 +14,7 @@ class dataSource extends ContentItem.dataSource {
       .split(/[-+]\d+:\d+/)[0];
     // the only difference between this and core is that this only looks
     // at startdatetime. Sermon Messages have fake expire dates, so we ignore those.
-    const filter = `((StartDateTime lt datetime'${date}') or (StartDateTime eq null)) and ((Status eq 'Approved') or (ContentChannel/RequiresApproval eq false))`;
+    const filter = `((StartDateTime lt datetime'${date}') or (StartDateTime eq null)) and ((Status eq 'Approved') or (ContentChannel/RequiresApproval eq false)) and ((ContentChannelId eq 22) or (ExpireDateTime gt datetime'${date}') or (ExpireDateTime eq null))`;
     return filter;
   };
 
