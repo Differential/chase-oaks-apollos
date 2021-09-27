@@ -2,6 +2,11 @@
 # yarn lockfile v1
 
 
+"@amplitude/react-native@^2.4.0":
+  version "2.4.0"
+  resolved "https://registry.yarnpkg.com/@amplitude/react-native/-/react-native-2.4.0.tgz#0b75b088245500b4b60c89dc36fc07e1ac34cafb"
+  integrity sha512-xbmaHRB4iKX8V6ElG9Yl7ikELiGW2XOkdMimWqTLR6zUIpjEwN+PSZ9+gPyexX15qnPDg52O58X5zyAL2Y/hzQ==
+
 "@apollo/client@3.3.20":
   version "3.3.20"
   resolved "https://registry.yarnpkg.com/@apollo/client/-/client-3.3.20.tgz#8f0935fa991857e9cf2e73c9bd378ad7ec97caf8"
@@ -14193,11 +14198,6 @@ react-lifecycles-compat@^3.0.2, react-lifecycles-compat@^3.0.4:
   version "3.0.4"
   resolved "https://registry.yarnpkg.com/react-lifecycles-compat/-/react-lifecycles-compat-3.0.4.tgz#4f1a273afdfc8f3488a8c516bfda78f872352362"
   integrity sha512-fBASbA6LnOU9dOU2eW7aQ8xmYBSXUIWr+UmF9b1efZBazGNO+rcXT/icdKnYm2pTwcRylVUYwW7H1PHfLekVzA==
-
-react-native-amplitude-analytics@^0.2.12:
-  version "0.2.12"
-  resolved "https://registry.yarnpkg.com/react-native-amplitude-analytics/-/react-native-amplitude-analytics-0.2.12.tgz#bf9b4fdd2d7ba6058964ead3c0d3b9eecc1a22b5"
-  integrity sha512-5pL048n7j0LeCPOjdDgADsijxdgoy1FBFZj75U9KjW+pP6TBTpROnVzgZuo4/Xd5f+xiB+Vz7gn8SCEAHv8IJg==
 
 react-native-config@^0.11.7:
   version "0.11.7"
