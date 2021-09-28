@@ -42,6 +42,31 @@ class dataSource extends ContentItem.dataSource {
     return features;
   };
 
+  // This needs to be made async
+  getVideos = ({ attributeValues, attributes }) => {
+    const videoKeys = Object.keys(attributes).filter((key) =>
+      this.attributeIsVideo({
+        key,
+        attributeValues,
+        attributes,
+      })
+    );
+    // console.log("Full Video", attributeValues?.fullLengthVideoEmbed.value, "Short Video", attributeValues?.videoEmbed.value)
+    return videoKeys.map((key) => ({
+      __typename: 'VideoMedia',
+      key,
+      name: attributes?.key?.name,
+      embedHtml: attributeValues?.key?.value,
+      sources: attributeValues?.key?.value
+        ? [
+            {
+              uri: attributeValues?.key?.value,
+            },
+          ]
+        : [],
+    }));
+  };
+
   byTaggedContent = async (tag) => {
     if (!tag) return this.request().empty();
 
