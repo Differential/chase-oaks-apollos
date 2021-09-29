@@ -1,5 +1,6 @@
 import { ContentItem } from '@apollosproject/data-connector-rock';
 import moment from 'moment';
+import { isThisWeek } from 'date-fns';
 import ApollosConfig from '@apollosproject/config';
 
 const { ROCK } = ApollosConfig;
@@ -42,25 +43,29 @@ class dataSource extends ContentItem.dataSource {
     return features;
   };
 
-  // This needs to be made async
-  getVideos = ({ attributeValues, attributes }) => {
-    const videoKeys = Object.keys(attributes).filter((key) =>
+  getVideos = (item) => {
+    const startDate = item.startDateTime;
+    // console.log('Is this week? ', isThisWeek(new Date(startDate)));
+    const videoKeys = Object.keys(item.attributes).filter((key) =>
       this.attributeIsVideo({
         key,
-        attributeValues,
-        attributes,
+        attributeValues: item.attributeValues,
+        attributes: item.attributes,
       })
     );
-    // console.log("Full Video", attributeValues?.fullLengthVideoEmbed.value, "Short Video", attributeValues?.videoEmbed.value)
+    // console.log("Full Video", item.attributeValues?.fullLengthVideoEmbed?.value, "Short Video", item.attributeValues?.videoEmbed?.value)
     return videoKeys.map((key) => ({
       __typename: 'VideoMedia',
       key,
-      name: attributes?.key?.name,
-      embedHtml: attributeValues?.key?.value,
-      sources: attributeValues?.key?.value
+      name: item.attributes?.key?.name,
+      embedHtml: isThisWeek(new Date(startDate))
+        ? item.attributeValues?.fullLengthVideoEmbed?.value ||
+          item.attributeValues?.key?.value
+        : item.attributeValues?.key?.value,
+      sources: item.attributeValues?.key?.value
         ? [
             {
-              uri: attributeValues?.key?.value,
+              uri: item.attributeValues?.key?.value,
             },
           ]
         : [],
