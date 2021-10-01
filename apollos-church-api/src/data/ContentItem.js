@@ -43,33 +43,33 @@ class dataSource extends ContentItem.dataSource {
     return features;
   };
 
-  getVideos = (item) => {
-    const startDate = item.startDateTime;
-    // console.log('Is this week? ', isThisWeek(new Date(startDate)));
-    const videoKeys = Object.keys(item.attributes).filter((key) =>
+  getVideos = ({ attributes, startDateTime, attributeValues }) => {
+    const videoKeys = Object.keys(attributes).filter((key) =>
       this.attributeIsVideo({
         key,
-        attributeValues: item.attributeValues,
-        attributes: item.attributes,
+        attributeValues,
+        attributes,
       })
     );
-    // console.log("Full Video", item.attributeValues?.fullLengthVideoEmbed?.value, "Short Video", item.attributeValues?.videoEmbed?.value)
-    return videoKeys.map((key) => ({
+    const keysByDate = videoKeys.filter(
+      isThisWeek(new Date(startDateTime))
+        ? (key) => key === 'fullLengthVideoEmbed'
+        : (key) => key === 'videoEmbed'
+    );
+    const keys = keysByDate.map((key) => ({
       __typename: 'VideoMedia',
       key,
-      name: item.attributes?.key?.name,
-      embedHtml: isThisWeek(new Date(startDate))
-        ? item.attributeValues?.fullLengthVideoEmbed?.value ||
-          item.attributeValues?.key?.value
-        : item.attributeValues?.key?.value,
-      sources: item.attributeValues?.key?.value
+      name: attributes[key].name,
+      embedHtml: attributeValues[key].value,
+      sources: attributeValues[key].value
         ? [
             {
-              uri: item.attributeValues?.key?.value,
+              uri: attributeValues[key].value,
             },
           ]
         : [],
     }));
+    return keys;
   };
 
   byTaggedContent = async (tag) => {

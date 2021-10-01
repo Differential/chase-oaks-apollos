@@ -6,6 +6,7 @@
   "scripts": {
     "setup": "./scripts/init.sh",
     "start": "NODE_ENV=production node ./lib/index.js",
+    "migrator": "node ./lib/migrator.js",
     "start:dev": "linkemon ./src/index.js --exec babel-node --delay 2 -e js,yaml,json,yml",
     "postinstall": "yarn build",
     "build": "NODE_ENV=production rm -rf ./lib && mkdir -p lib && babel ./src -d ./lib",
