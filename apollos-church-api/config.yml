@@ -58,23 +58,23 @@ BIBLE_API:
 CLOUDINARY:
   URL: ${CLOUDINARY_URL}
 SUGGESTED_FOLLOWS:
-  - 
+  -
     id: ae86525c-8dd1-453b-a12d-0d70c8ac13c2 # Jeff Jones
-  - 
+  -
     id: 798df5a5-4163-426e-b6ab-1116aafa12c6 # Jack Warren
-  - 
+  -
     id: 45dab87e-aaed-489d-ba92-f39ed1250457 # Glen Brechner
-  - 
+  -
     id: b8d6892a-1ee2-4a0f-a724-fbc68d17e43e # Eric Torrence
-  - 
+  -
     id: 3361130b-dd2d-42f1-826a-b3eb15537d6a # Greg Holmes
-  - 
+  -
     id: 38005b8b-1258-4e3c-9522-4dd116824798 # Cindy Park
-  - 
+  -
     id: 529e9baa-56a9-4a0f-8b26-aee07656cf21 # Katy Bailey
-  - 
+  -
     id: 97810337-0769-404d-bc83-66c9dca45b02 # Ashley Khastehdel
-  - 
+  -
     id: c72b5797-595b-4eab-aa56-509d91513bdf # Julissa Estrada
   -
     id: 3615b522-3adb-48c0-81c6-29750be26019 # Matt Brandenburg
@@ -82,7 +82,7 @@ SUGGESTED_FOLLOWS:
   -
     id: 7857184c-ff22-4fb5-829a-b05fb9ee8e05 # Peter Park
     campusId: f1261efa-0758-4c93-8928-0cb1fc76ab5b # Legacy
-  - 
+  -
     id: 91e31f46-304e-4c89-bd3f-77079d56af96 # Jeffrey John Jones
     campusId: 254732b9-3c5c-45cd-b02b-37e750e6f057 # Richardson
   -
@@ -207,7 +207,7 @@ TABS:
         - type: CONTENT_FEED
           arguments:
             channelIds:
-              - 391
+              - 392
             limit: 5
       type: HorizontalCardList
       title: Groups
@@ -215,13 +215,13 @@ TABS:
         action: OPEN_CHANNEL
         relatedNode:
           __typename: ContentChannel
-          id: 391
+          id: 392
           name: Groups
     - algorithms: # worship
         - type: CONTENT_FEED
           arguments:
             channelIds:
-              - 383
+              - 394
             limit: 5
       type: HorizontalCardList
       title: Worship
@@ -229,13 +229,13 @@ TABS:
         action: OPEN_CHANNEL
         relatedNode:
           __typename: ContentChannel
-          id: 383
+          id: 394
           name: Worship
     - algorithms: # kids
         - type: CONTENT_FEED
           arguments:
             channelIds:
-              - 384
+              - 395
             limit: 5
       type: HorizontalCardList
       title: Kids
@@ -243,13 +243,13 @@ TABS:
         action: OPEN_CHANNEL
         relatedNode:
           __typename: ContentChannel
-          id: 384
+          id: 395
           name: Kids
     - algorithms: # en espanol
         - type: CONTENT_FEED
           arguments:
             channelIds:
-              - 390
+              - 393
             limit: 5
       type: HorizontalCardList
       title: En Español
@@ -257,7 +257,7 @@ TABS:
         action: OPEN_CHANNEL
         relatedNode:
           __typename: ContentChannel
-          id: 390
+          id: 393
           name: En Español
 
 
