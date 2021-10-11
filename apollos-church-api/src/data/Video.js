@@ -10,7 +10,9 @@ class dataSource extends RESTDataSource {
   baseURL = 'https://api.vimeo.com/';
 
   willSendRequest = (request) => {
-    request.headers.set('Authorization', `Bearer ${this.token}`);
+    if (request.path.includes(this.baseUrl)) {
+      request.headers.set('Authorization', `Bearer ${this.token}`);
+    }
   };
 
   getHLSForVideo = async (embed) => {
@@ -30,6 +32,26 @@ class dataSource extends RESTDataSource {
 
       return source;
     }
+
+    // captures RESI urls
+    const matchesResi = embed.match(
+      /(?<=control.resi.io\/webplayer\/video.html\?id=).*?(?=&type=)/
+    );
+    if (matchesResi && matchesResi[0]) {
+      const cachedVideo = await Cache.get({
+        key: ['resi', embed],
+      });
+      if (cachedVideo) return cachedVideo;
+
+      const response = await this.get(
+        `https://webevents.resi.io/api/v1/library/${matchesResi[0]}`
+      );
+      const source = response?.cdnManifestUrls[0]?.hlsUrl;
+
+      if (source) Cache.set({ key: ['resi', embed], data: source });
+
+      return source;
+    }
     return null;
   };
 
@@ -41,13 +63,13 @@ class dataSource extends RESTDataSource {
 }
 
 const baseResolver = {
-  videos: (root, args, { dataSources: { ContentItem, Vimeo } }) => {
+  videos: (root, args, { dataSources: { ContentItem, Video } }) => {
     const videoUrls = ContentItem.getVideos(root);
     return videoUrls.map((video) => ({
       ...video,
       sources: video.sources.map(({ uri }) => ({
         // if it's not a URI, we're assuming it's a Vimeo ID
-        uri: uri.startsWith('http') ? uri : Vimeo.getHLSForVideo(uri),
+        uri: uri.startsWith('http') ? uri : Video.getHLSForVideo(uri),
       })),
     }));
   },

@@ -57,7 +57,7 @@ import {
 } from '@apollosproject/data-connector-postgres';
 
 import * as Theme from './theme';
-import * as Vimeo from './Vimeo';
+import * as Video from './Video';
 import * as RockContentItem from './ContentItem';
 import * as RockActionAlgorithm from './ActionAlgorithm';
 import * as tempCampusModel from './tempCampusModel';
@@ -138,7 +138,7 @@ const data = {
   NotificationPreference,
   OneSignal,
   Person, // An extension of Postgres person. Will be eliminated in the near future so you can use just postgres/Person.
-  Vimeo,
+  Video,
 };
 
 const {

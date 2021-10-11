@@ -38,7 +38,7 @@ import {
 } from '@apollosproject/data-connector-rock';
 
 import * as Theme from './theme';
-import * as Vimeo from './Vimeo';
+import * as Video from './Video';
 import * as ContentItem from './ContentItem';
 
 // This module is used to attach Rock User updating to the OneSignal module.
@@ -79,7 +79,7 @@ const data = {
   Event,
   Cache,
   PrayerRequest,
-  Vimeo,
+  Video,
   Persona,
   Person,
   BinaryFiles,
