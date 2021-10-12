@@ -1,7 +1,8 @@
 import React, { useEffect } from 'react';
 import PropTypes from 'prop-types';
-import { View, Image } from 'react-native';
+import { Image, View } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
+import { createNativeStackNavigator } from 'react-native-screens/native-stack';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import {
   NavigationService,
@@ -49,10 +50,7 @@ SearchButton.propTypes = {
 };
 
 const Avatar = withTheme(({ theme: { sizing: { baseUnit } } }) => ({
-  size: 'small',
-  containerStyle: {
-    paddingBottom: baseUnit * 0.25,
-  },
+  size: 'xsmall',
 }))(UserAvatarConnected);
 
 const ProfileButton = ({ onPress }) => (
