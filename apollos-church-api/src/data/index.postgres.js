@@ -60,7 +60,6 @@ import * as Theme from './theme';
 import * as Video from './Video';
 import * as RockContentItem from './ContentItem';
 import * as RockActionAlgorithm from './ActionAlgorithm';
-import * as tempCampusModel from './tempCampusModel';
 import * as Cloudinary from './cloudinary';
 
 // This modules ties together certain updates so they occurs in both Rock and Postgres.
@@ -97,8 +96,9 @@ const rockContentModules = {
   ContentChannel,
   PrayerRequest,
   PostgresCampus: {
+    // essentially everything but the resolvers
     dataSource: Campus.dataSource,
-    models: tempCampusModel,
+    models: Campus.models,
     migrations: Campus.migrations,
   },
   Campus: RockCampus,
