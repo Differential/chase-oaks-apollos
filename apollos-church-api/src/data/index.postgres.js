@@ -8,7 +8,7 @@ import {
 import * as Analytics from '@apollosproject/data-connector-analytics';
 import * as Scripture from '@apollosproject/data-connector-bible';
 import * as LiveStream from '@apollosproject/data-connector-church-online';
-import * as Cloudinary from '@apollosproject/data-connector-cloudinary';
+// import * as Cloudinary from '@apollosproject/data-connector-cloudinary';
 import * as Search from '@apollosproject/data-connector-algolia-search';
 import * as Pass from '@apollosproject/data-connector-passes';
 import * as Cache from '@apollosproject/data-connector-redis-cache';
@@ -61,6 +61,7 @@ import * as Video from './Video';
 import * as RockContentItem from './ContentItem';
 import * as RockActionAlgorithm from './ActionAlgorithm';
 import * as tempCampusModel from './tempCampusModel';
+import * as Cloudinary from './cloudinary';
 
 // This modules ties together certain updates so they occurs in both Rock and Postgres.
 // Will be eliminated in the future through an enhancement to the Shovel

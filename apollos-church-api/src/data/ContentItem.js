@@ -52,7 +52,8 @@ class dataSource extends ContentItem.dataSource {
       })
     );
     const keysByDate = videoKeys.filter(
-      isThisWeek(new Date(startDateTime)) && videoKeys.includes('fullLengthVideoEmbed')
+      isThisWeek(new Date(startDateTime)) &&
+      videoKeys.includes('fullLengthVideoEmbed')
         ? (key) => key === 'fullLengthVideoEmbed'
         : (key) => key === 'videoEmbed'
     );
