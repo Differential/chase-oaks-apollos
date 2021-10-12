@@ -10,7 +10,7 @@ class dataSource extends RESTDataSource {
   baseURL = 'https://api.vimeo.com/';
 
   willSendRequest = (request) => {
-    if (request.path.includes(this.baseUrl)) {
+    if (!request.path.includes('http')) {
       request.headers.set('Authorization', `Bearer ${this.token}`);
     }
   };
