@@ -93,6 +93,44 @@ class dataSource extends ContentItem.dataSource {
       .cache({ ttl: 60 })
       .orderBy('StartDateTime', 'desc');
   };
+
+  getCursorBySiblingContentItemId = async (id) => {
+    // Get all parents for the current item.
+    const parentAssociations = await this.request(
+      'ContentChannelItemAssociations'
+    )
+      .filter(`ChildContentChannelItemId eq ${id}`)
+      .cache({ ttl: 60 })
+      .get();
+
+    if (!parentAssociations || !parentAssociations.length)
+      return this.request().empty();
+
+    // Now, fetch all children relations for those parents (excluding the original item)
+    const siblingAssociationsRequest = this.request(
+      'ContentChannelItemAssociations'
+    )
+      // This is custom so that guided discussions are not shown in horizontal feeds
+      .expand('ChildContentChannelItem')
+      .filter('ChildContentChannelItem/ContentChannelId ne 143');
+
+    const parentFilter = parentAssociations.map(
+      ({ contentChannelItemId }) =>
+        `(ContentChannelItemId eq ${contentChannelItemId})`
+    );
+    siblingAssociationsRequest.andFilter(parentFilter);
+
+    const siblingAssociations = await siblingAssociationsRequest.get();
+    if (!siblingAssociations || !siblingAssociations.length)
+      return this.request().empty();
+
+    // console.log(siblingAssociations);
+    return this.getFromIds(
+      siblingAssociations.map(
+        ({ childContentChannelItemId }) => childContentChannelItemId
+      )
+    ).sort(this.DEFAULT_SORT());
+  };
 }
 
 export { resolver, schema, dataSource };
