@@ -20,6 +20,7 @@ class dataSource extends ActionAlgorithm.dataSource {
       ...item,
       ...(item.relatedNode.attributeValues?.buttonLink?.value
         ? Feature.attachActionIds({
+            ...item,
             action: 'OPEN_URL',
             relatedNode: {
               __typename: 'Url',
