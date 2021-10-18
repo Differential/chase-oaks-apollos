@@ -221,7 +221,7 @@ TABS:
         - type: CONTENT_FEED
           arguments:
             channelIds:
-              - 394
+              - 383
             limit: 5
       type: HorizontalCardList
       title: Worship
@@ -229,7 +229,7 @@ TABS:
         action: OPEN_CHANNEL
         relatedNode:
           __typename: ContentChannel
-          id: 394
+          id: 383
           name: Worship
     - algorithms: # kids
         - type: CONTENT_FEED
