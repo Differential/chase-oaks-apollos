@@ -9,7 +9,26 @@ class dataSource extends ActionAlgorithm.dataSource {
     ...this.ACTION_ALGORITHMS,
     TAGGED_CONTENT_FEED: this.taggedContentFeedAlgorithm.bind(this),
     PRIORITY_CONTENT_FEED: this.priorityContentFeedAlgorithm.bind(this),
+    OPEN_URL_CONTENT_FEED: this.openUrlContentFeedAlgorithm.bind(this),
   };
+
+  async openUrlContentFeedAlgorithm(...args) {
+    const { Feature } = this.context.dataSources;
+    const contentFeed = await this.contentFeedAlgorithm(...args);
+
+    return contentFeed.map((item) => ({
+      ...item,
+      ...(item.relatedNode.attributeValues?.buttonLink?.value
+        ? Feature.attachActionIds({
+            action: 'OPEN_URL',
+            relatedNode: {
+              __typename: 'Url',
+              url: item.relatedNode.attributeValues.buttonLink.value,
+            },
+          })
+        : {}),
+    }));
+  }
 
   async priorityContentFeedAlgorithm({
     channelIds = [],

@@ -33,7 +33,7 @@ class dataSource extends ContentItem.dataSource {
           // grabs top 5 from the "Featured Next Steps" content channel
           algorithms: [
             {
-              type: 'CONTENT_FEED',
+              type: 'OPEN_URL_CONTENT_FEED',
               arguments: { limit: 5, channelIds: [389] },
             },
           ],
