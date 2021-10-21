@@ -95,6 +95,23 @@ class dataSource extends ContentItem.dataSource {
       .orderBy('StartDateTime', 'desc');
   };
 
+  getCursorByParentContentItemId = async (id) => {
+    const associations = await this.request('ContentChannelItemAssociations')
+      .expand('ChildContentChannelItem')
+      .filter(`ContentChannelItemId eq ${id}`)
+      .andFilter('ChildContentChannelItem/ContentChannelId ne 143')
+      .cache({ ttl: 60 })
+      .get();
+
+    if (!associations || !associations.length) return this.request().empty();
+
+    return this.getFromIds(
+      associations.map(
+        ({ childContentChannelItemId }) => childContentChannelItemId
+      )
+    ).sort(this.DEFAULT_SORT());
+  };
+
   getCursorBySiblingContentItemId = async (id) => {
     // Get all parents for the current item.
     const parentAssociations = await this.request(
@@ -125,7 +142,6 @@ class dataSource extends ContentItem.dataSource {
     if (!siblingAssociations || !siblingAssociations.length)
       return this.request().empty();
 
-    // console.log(siblingAssociations);
     return this.getFromIds(
       siblingAssociations.map(
         ({ childContentChannelItemId }) => childContentChannelItemId
