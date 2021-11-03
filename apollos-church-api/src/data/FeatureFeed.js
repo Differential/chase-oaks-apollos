@@ -7,17 +7,17 @@ const resolver = {
   ...FeatureFeed.resolver,
   Query: {
     ...FeatureFeed.resolver.Query,
-    watchPlatformFeedFeatures: (root, args, { dataSources }) =>
+    tvFeedFeatures: (root, args, { dataSources }) =>
       dataSources.FeatureFeed.getFeed({
         type: 'apollosConfig',
-        args: { section: 'WATCH_PLATFORM_FEATURES', ...args },
+        args: { section: 'TV_FEATURES', ...args },
       }),
   },
 };
 
 const schema = gql`
   extend enum Tab {
-    WATCH_PLATFORM
+    TV
   }
 `;
 

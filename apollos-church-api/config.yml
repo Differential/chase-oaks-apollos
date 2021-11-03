@@ -329,7 +329,7 @@ TABS:
           },
         ]
 
-  WATCH_PLATFORM:
+  TV:
     - algorithms:
         - type: CONTENT_FEED
           arguments:
