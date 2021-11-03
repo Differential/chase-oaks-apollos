@@ -260,7 +260,6 @@ TABS:
           id: 393
           name: En Español
 
-
   READ:
     - algorithms:
         - type: CONTENT_FEED
@@ -329,3 +328,82 @@ TABS:
             relatedNode: { __typename: Url, url: 'https://www.facebook.com' },
           },
         ]
+
+  WATCH_PLATFORM:
+    - algorithms:
+        - type: CONTENT_FEED
+          arguments:
+            channelIds:
+              - 23
+            limit: 1
+      type: HeroList
+    - algorithms: # series
+        - type: CONTENT_FEED
+          arguments:
+            channelIds:
+              - 22
+            limit: 5
+      type: HorizontalCardList
+      title: All Series
+      primaryAction:
+        action: OPEN_CHANNEL
+        relatedNode:
+          __typename: ContentChannel
+          id: 22
+          name: Series
+    - algorithms: # groups
+        - type: CONTENT_FEED
+          arguments:
+            channelIds:
+              - 392
+            limit: 5
+      type: HorizontalCardList
+      title: Groups
+      primaryAction:
+        action: OPEN_CHANNEL
+        relatedNode:
+          __typename: ContentChannel
+          id: 392
+          name: Groups
+    - algorithms: # worship
+        - type: CONTENT_FEED
+          arguments:
+            channelIds:
+              - 383
+            limit: 5
+      type: HorizontalCardList
+      title: Worship
+      primaryAction:
+        action: OPEN_CHANNEL
+        relatedNode:
+          __typename: ContentChannel
+          id: 383
+          name: Worship
+    - algorithms: # kids
+        - type: CONTENT_FEED
+          arguments:
+            channelIds:
+              - 395
+            limit: 5
+      type: HorizontalCardList
+      title: Kids
+      primaryAction:
+        action: OPEN_CHANNEL
+        relatedNode:
+          __typename: ContentChannel
+          id: 395
+          name: Kids
+    - algorithms: # en espanol
+        - type: CONTENT_FEED
+          arguments:
+            channelIds:
+              - 393
+            limit: 5
+      type: HorizontalCardList
+      title: En Español
+      primaryAction:
+        action: OPEN_CHANNEL
+        relatedNode:
+          __typename: ContentChannel
+          id: 393
+          name: En Español
