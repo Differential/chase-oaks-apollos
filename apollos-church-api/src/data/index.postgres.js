@@ -24,7 +24,7 @@ import {
   AuthSms,
   Group,
   BinaryFiles,
-  FeatureFeed,
+  // FeatureFeed,
   Event,
   PrayerRequest,
   Person as RockPerson,
@@ -61,6 +61,7 @@ import * as Video from './Video';
 import * as RockContentItem from './ContentItem';
 import * as RockActionAlgorithm from './ActionAlgorithm';
 import * as Cloudinary from './cloudinary';
+import * as FeatureFeed from './FeatureFeed';
 
 // This modules ties together certain updates so they occurs in both Rock and Postgres.
 // Will be eliminated in the future through an enhancement to the Shovel
