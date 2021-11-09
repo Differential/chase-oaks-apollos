@@ -28,7 +28,7 @@ import {
   Campus,
   Group,
   Feature,
-  FeatureFeed,
+  // FeatureFeed,
   ActionAlgorithm,
   Event,
   PrayerRequest,
@@ -49,6 +49,7 @@ import * as OneSignalWithRock from './oneSignalWithRock';
 // This is to mock any postgres resolvers so we don't throw API errors for unresolved
 // typedefs
 import NoPostgres from './noPostgres';
+import FeatureFeed from './FeatureFeed';
 
 const data = {
   Interfaces,
