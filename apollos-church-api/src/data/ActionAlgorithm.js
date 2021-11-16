@@ -7,10 +7,32 @@ const { resolver } = ActionAlgorithm;
 class dataSource extends ActionAlgorithm.dataSource {
   ACTION_ALGORITHMS = {
     ...this.ACTION_ALGORITHMS,
-    TAGGED_CONTENT_FEED: this.taggedContentFeedAlgorithm.bind(this),
-    PRIORITY_CONTENT_FEED: this.priorityContentFeedAlgorithm.bind(this),
     OPEN_URL_CONTENT_FEED: this.openUrlContentFeedAlgorithm.bind(this),
+    PRIORITY_CONTENT_FEED: this.priorityContentFeedAlgorithm.bind(this),
+    SERMON_CONTENT_FEED: this.sermonContentFeedAlgorithm.bind(this),
+    TAGGED_CONTENT_FEED: this.taggedContentFeedAlgorithm.bind(this),
   };
+
+  async sermonContentFeedAlgorithm({
+    channelIds = [],
+    limit = 20,
+    skip = 0,
+  } = {}) {
+    const { ContentItem } = this.context.dataSources;
+    const items = await ContentItem.byContentChannelIds(channelIds)
+      .top(limit)
+      .skip(skip)
+      .get();
+    return items.map((item, i) => ({
+      id: `${item.id}${i}`,
+      title: item.title,
+      subtitle: get(item, 'contentChannel.name'),
+      relatedNode: { ...item, __type: ContentItem.resolveType(item) },
+      image: ContentItem.getCoverImage(item),
+      action: 'READ_CONTENT',
+      summary: item.attributeValues.seoMetaDescription.value,
+    }));
+  }
 
   async openUrlContentFeedAlgorithm(...args) {
     const { Feature } = this.context.dataSources;

@@ -183,7 +183,7 @@ TABS:
 
   WATCH:
     - algorithms:
-        - type: CONTENT_FEED
+        - type: SERMON_CONTENT_FEED
           arguments:
             channelIds:
               - 23
