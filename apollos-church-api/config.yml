@@ -204,6 +204,21 @@ TABS:
           __typename: ContentChannel
           id: 22
           name: Series
+    - algorithms: # Post Script
+        - type: CONTENT_FEED
+          arguments:
+            channelIds:
+              - 401
+            limit: 5
+      type: HorizontalCardList
+      title: Post Script
+      primaryAction:
+        action: OPEN_CHANNEL
+        title: 'View All'
+        relatedNode:
+          __typename: ContentChannel
+          id: 401
+          name: Post Script
     - algorithms: # groups
         - type: CONTENT_FEED
           arguments:
@@ -264,21 +279,6 @@ TABS:
           __typename: ContentChannel
           id: 393
           name: En Español
-    - algorithms: # Post Script
-        - type: CONTENT_FEED
-          arguments:
-            channelIds:
-              - 401
-            limit: 5
-      type: HorizontalCardList
-      title: Post Script
-      primaryAction:
-        action: OPEN_CHANNEL
-        title: 'View All'
-        relatedNode:
-          __typename: ContentChannel
-          id: 401
-          name: Post Script
 
   READ:
     - algorithms:
