@@ -284,10 +284,10 @@
     apollo-datasource "^0.2.0"
     ioredis "4.14.1"
 
-"@apollosproject/data-connector-rock@^2.38.0":
-  version "2.38.0"
-  resolved "https://registry.yarnpkg.com/@apollosproject/data-connector-rock/-/data-connector-rock-2.38.0.tgz#ff043a8e84d8cf2b3385960205cccbb56179ceb3"
-  integrity sha512-aBGdMjb8So8N6ARw/srlamgPWfcmMdBdMNE3ULKn+RxvcYrAFWURSx2EaozhX6W1T1Rod6SRt/imhvhSYvFmvQ==
+"@apollosproject/data-connector-rock@^2.39.1-canary.17":
+  version "2.39.1-canary.17"
+  resolved "https://registry.yarnpkg.com/@apollosproject/data-connector-rock/-/data-connector-rock-2.39.1-canary.17.tgz#dde76ea8b4dac852ae734aceec07b2ac090712d7"
+  integrity sha512-Mncit3A8pBvkSBhS1aP/0x3wlFBk61Ca1QfMbazE0hlAQo2TvFHlucAk4KWSabEN41qWxHbPze5RsX52QwiJOw==
   dependencies:
     awesome-phonenumber "^2.4.2"
     form-data "^4.0.0"
@@ -313,6 +313,13 @@
   version "2.38.0"
   resolved "https://registry.yarnpkg.com/@apollosproject/data-schema/-/data-schema-2.38.0.tgz#ba807b13b811cb931a9ef659e616e5d3410c164b"
   integrity sha512-YLtqnX2JI0ok7TflPhGpzfe5BReh6BNTCVAzwtNAvB9x4nrxSMdEl4QAD0Xy1IeA+7QBlT1coDCcD22NFNbDAA==
+  dependencies:
+    "@apollo/client" "3.3.20"
+
+"@apollosproject/data-schema@^2.39.1-canary.1":
+  version "2.39.1-canary.1"
+  resolved "https://registry.yarnpkg.com/@apollosproject/data-schema/-/data-schema-2.39.1-canary.1.tgz#eefb7f5093e746a56e0537c6e2dda5c5ca1b6b2b"
+  integrity sha512-lYviQlhtiDmYJlcgdVSNTmKCCsKe+cJIH2/mI0zVMYt/KM7Tz23uCy8AXRp9nUr++G5aCEo+EB7tr9CR0zAldQ==
   dependencies:
     "@apollo/client" "3.3.20"
 
