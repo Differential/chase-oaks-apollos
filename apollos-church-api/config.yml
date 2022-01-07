@@ -116,11 +116,12 @@ ROCK_MAPPINGS:
       EntityType: ContentChannelItem
       ContentChannelId: [363]
     MediaContentItem:
+      ContentChannelId: [426]
       EntityType: ContentChannelItem
     UniversalContentItem:
       EntityType: ContentChannelItem
     WeekendContentItem:
-      ContentChannelId: [23, 383, 384, 391, 390, 426]
+      ContentChannelId: [23, 383, 384, 391, 390]
       EntityType: ContentChannelItem
     ContentItem:
       EntityType: ContentChannelItem
