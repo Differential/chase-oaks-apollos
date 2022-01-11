@@ -2,7 +2,7 @@ import { ContentItem } from '@apollosproject/data-connector-rock';
 import moment from 'moment';
 import { isThisWeek } from 'date-fns';
 import ApollosConfig from '@apollosproject/config';
-import { createGlobalId, parseGlobalId } from '@apollosproject/server-core';
+import { createGlobalId } from '@apollosproject/server-core';
 
 const { ROCK } = ApollosConfig;
 
@@ -23,39 +23,41 @@ class dataSource extends ContentItem.dataSource {
   attributeIsVideo = ({ key }) =>
     key.toLowerCase().includes('video') || key.toLowerCase().includes('vimeo');
 
+  _coreParentCursor = this.getCursorByParentContentItemId;
+
   getFeatures = async (item) => {
     const features = await super.getFeatures(item);
     const { Feature } = this.context.dataSources;
+
     if (item.contentChannelId === 23) {
-      const cursor = await this.getCursorBySiblingContentItemId(item.id);
+      const cursor = await this._coreParentCursor(item.id);
       const childItems = await cursor.get();
 
-      // Customize the getCursorBySiblingContentItemId function to allow discussion guides through here, but not on the horizontal card feeds
+      if (childItems.length) {
+        const discussionGuide = childItems[0];
 
-      // sermon channel
-      features.push(
-        Feature.createActionTableFeature({
-          __typename: 'ActionTableFeature',
-          title: '',
-          actions: [
-            {
-              id: createGlobalId(
-                JSON.stringify({
-                  __typename: 'ActionTableItem',
-                  title: 'Discussion Guide',
-                }),
-                'ActionTableItem'
-              ),
-              title: 'Discussion Guide',
-              action: 'OPEN_URL',
-              relatedNode: {
-                __typename: 'Url',
-                url: 'https://www.google.com',
+        // sermon channel
+        // ID below in the relatedNode is broken
+        features.push(
+          Feature.createActionTableFeature({
+            __typename: 'ActionTableFeature',
+            title: '',
+            actions: [
+              {
+                title: 'Discussion Guide',
+                action: 'READ_CONTENT',
+                relatedNode: {
+                  __typename: 'UniversalContentItem',
+                  id: createGlobalId(
+                    discussionGuide.id,
+                    'UniversalContentItem'
+                  ),
+                },
               },
-            },
-          ],
-        })
-      );
+            ],
+          })
+        );
+      }
       features.push(
         Feature.createHorizontalCardListFeature({
           title: 'Next Steps',
