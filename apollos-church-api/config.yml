@@ -163,14 +163,6 @@ TABS:
           arguments:
             limit: 1
             channelIds:
-              - 426
-      title: 40 Day Challenge
-      type: VerticalCardList
-    - algorithms:
-        - type: CONTENT_FEED
-          arguments:
-            limit: 1
-            channelIds:
               - 363
       title: Daily Scripture
       type: VerticalCardList
