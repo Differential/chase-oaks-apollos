@@ -166,6 +166,15 @@ TABS:
               - 426
       title: 40 Day Challenge
       type: VerticalCardList
+    - title: This Week # This pulls the 7 content items for 40 Day Challenge this week
+      subtitle: 40 Day Challenge
+      algorithms:
+        - type: WEEKLY_CONTENT_FEED
+          arguments:
+            channelIds:
+              - 426
+      type: ActionList
+      isCard: false
     - algorithms:
         - type: CONTENT_FEED
           arguments:
