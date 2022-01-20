@@ -43,7 +43,6 @@ const apolloServer = new ApolloServer({
   dataSources,
   context,
   introspection: true,
-
   extensions: isDev ? [() => new RockLoggingExtension()] : [],
   plugins: [
     responseCachePlugin({
@@ -67,19 +66,7 @@ const apolloServer = new ApolloServer({
   ...(process.env.REDIS_URL
     ? {
         cache: new BaseRedisCache({
-          client: new Redis(
-            process.env.REDIS_URL,
-
-            {
-              ...(process.env.REDIS_URL.includes('rediss')
-                ? {
-                    tls: {
-                      rejectUnauthorized: false,
-                    },
-                  }
-                : {}),
-            }
-          ),
+          client: new Redis(process.env.REDIS_URL),
         }),
       }
     : {}),
