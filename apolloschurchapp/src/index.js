@@ -29,6 +29,7 @@ import {
   ContentSingleConnected,
   ContentFeedConnected,
   SearchScreenConnected,
+  UserSettingsConnected,
 } from '@apollosproject/ui-connected';
 import Providers from './Providers';
 import Tabs from './tabs';
@@ -36,7 +37,7 @@ import customTheme, { customIcons } from './theme';
 
 import Auth from './AuthNavigator';
 
-import UserSettingsNavigator from './user-settings';
+import UserSettingsNavigator from './user-settings/UserSettings';
 
 import Landing from './onboarding/Landing';
 
