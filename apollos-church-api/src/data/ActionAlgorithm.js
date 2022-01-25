@@ -5,9 +5,10 @@ import {
   formatISO,
   previousSunday,
   nextSaturday,
-  startOfToday,
   startOfTomorrow,
   endOfToday,
+  isSaturday,
+  endOfYesterday,
 } from 'date-fns';
 
 const { resolver } = ActionAlgorithm;
@@ -108,7 +109,7 @@ class dataSource extends ActionAlgorithm.dataSource {
   async weeklyContentFeedAlgorithm({
     category = '',
     channelIds = [],
-    limit = 5,
+    limit = 7,
     skip = 0,
   } = {}) {
     const { ContentItem } = this.context.dataSources;
@@ -124,7 +125,7 @@ class dataSource extends ActionAlgorithm.dataSource {
             `((StartDateTime gt datetime'${formatISO(
               previousSunday(startOfTomorrow())
             )}') and (StartDateTime lt datetime'${formatISO(
-              nextSaturday(endOfToday())
+              nextSaturday(isSaturday(endOfToday()) ? endOfYesterday() : endOfToday())
             )}'))`
           )
           .top(limit)
