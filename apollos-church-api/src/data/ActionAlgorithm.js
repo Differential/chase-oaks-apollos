@@ -6,8 +6,6 @@ import {
   previousSunday,
   nextSaturday,
   startOfTomorrow,
-  endOfToday,
-  isSaturday,
   endOfYesterday,
 } from 'date-fns';
 
@@ -125,7 +123,7 @@ class dataSource extends ActionAlgorithm.dataSource {
             `((StartDateTime gt datetime'${formatISO(
               previousSunday(startOfTomorrow())
             )}') and (StartDateTime lt datetime'${formatISO(
-              nextSaturday(isSaturday(endOfToday()) ? endOfYesterday() : endOfToday())
+              nextSaturday(endOfYesterday())
             )}'))`
           )
           .top(limit)
