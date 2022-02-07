@@ -48,12 +48,12 @@
     "@apollosproject/react-native-airplay-btn": "^0.2.0",
     "@apollosproject/ui-analytics": "^2.42.0",
     "@apollosproject/ui-auth": "^2.42.0",
-    "@apollosproject/ui-connected": "^2.42.0",
+    "@apollosproject/ui-connected": "^2.43.2-canary.6",
     "@apollosproject/ui-fragments": "^2.42.0",
     "@apollosproject/ui-htmlview": "^2.42.0",
     "@apollosproject/ui-kit": "^2.42.0",
     "@apollosproject/ui-mapview": "^2.42.0",
-    "@apollosproject/ui-media-player": "^2.42.0",
+    "@apollosproject/ui-media-player": "^2.43.2-canary.6",
     "@apollosproject/ui-notifications": "^2.42.0",
     "@apollosproject/ui-onboarding": "^2.42.0",
     "@apollosproject/ui-passes": "^2.42.0",
@@ -108,6 +108,7 @@
     "react-native-safari-view": "2.1.0",
     "react-native-safe-area-context": "^3.0.7",
     "react-native-screens": "3.2.0",
+    "react-native-sha256": "^1.4.7",
     "react-native-splash-screen": "^3.2.0",
     "react-native-svg": "^9.4.0",
     "react-native-video": "^5.2.0",
@@ -116,8 +117,7 @@
     "recompose": "^0.30.0",
     "rn-fetch-blob": "^0.10.16",
     "stream": "^0.0.2",
-    "yup": "0.26.6",
-    "react-native-sha256": "^1.4.7"
+    "yup": "0.26.6"
   },
   "devDependencies": {
     "@apollosproject/eslint-config": "^2.42.0",
