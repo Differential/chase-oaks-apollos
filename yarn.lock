@@ -351,10 +351,10 @@
     formik "1.5.1"
     yup "^0.27.0"
 
-"@apollosproject/ui-connected@^2.43.2-canary.6":
-  version "2.43.2-canary.6"
-  resolved "https://registry.yarnpkg.com/@apollosproject/ui-connected/-/ui-connected-2.43.2-canary.6.tgz#b545104824be7a635d98bd5f109afb38d54ddf36"
-  integrity sha512-gOhUwB5keqJ5BQKIcL9w1VbHz7UFr6E5MwoyooPjXWgakOv3uGidXS+R9BchUmx6aN2qF7+MpAFDk5zR1edOTQ==
+"@apollosproject/ui-connected@^2.43.2-canary.17":
+  version "2.43.2-canary.17"
+  resolved "https://registry.yarnpkg.com/@apollosproject/ui-connected/-/ui-connected-2.43.2-canary.17.tgz#e160c35745f6806e0afb331b67bee9ef026a53ab"
+  integrity sha512-j6J10b9BZJeyAHwi7N23EISx3FRhYg0YEZFYmgiGEO+OIMrQwMWtameigIxM504imMl75q9rcOuuojjZHeFNVg==
   dependencies:
     "@gorhom/bottom-sheet" "3.4.1"
     apollo-upload-client "^17.0.0"
@@ -2113,10 +2113,10 @@
   resolved "https://registry.yarnpkg.com/@bugsnag/plugin-react/-/plugin-react-7.10.0.tgz#eef05c2d5d2cce45f622cce152d93cf777edf022"
   integrity sha512-o0oHd2BfGxFAQTrc1/u0T5RtWntOaeUREnXOfnrX2obi6JthWCcn44YUyUQ0IklcoZ+IAcLy27GNDggs5LfIew==
 
-"@bugsnag/react-native-cli@^7.10.0":
-  version "7.10.0"
-  resolved "https://registry.yarnpkg.com/@bugsnag/react-native-cli/-/react-native-cli-7.10.0.tgz#89ba63af9d4b603ebeb311e6ab5adf3461387246"
-  integrity sha512-ZUf5C3fraAW1mEG0r+AFk+FXRODHGtCK1qpUVOLlRtlz7nfrb9Qaw1mj7woI7G1WpQkzohdrgJ/4CqyCzuklvw==
+"@bugsnag/react-native-cli@^7.15.1":
+  version "7.15.1"
+  resolved "https://registry.yarnpkg.com/@bugsnag/react-native-cli/-/react-native-cli-7.15.1.tgz#769358ddad2decb35479825edb9b5e37b911f118"
+  integrity sha512-5MPHoDBhA0cl/6bbwDQM6aQkDtwG5RfR9KFAQQrJZYhJjos4Cu33w0afHn9CpSeCd9f+vhJrO1nSWNv+TEiQcA==
   dependencies:
     command-line-args "^5.1.1"
     command-line-usage "^6.1.0"

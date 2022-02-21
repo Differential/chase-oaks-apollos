@@ -40,5 +40,7 @@
           <data android:scheme="http" />
         </intent-filter>
       </activity>
+
+      <meta-data android:name="com.bugsnag.android.API_KEY" android:value="74e3e7d718a38e13a622b1dba281e51d" />
     </application>
 </manifest>
