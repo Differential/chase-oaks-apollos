@@ -116,11 +116,11 @@ ROCK_MAPPINGS:
       EntityType: ContentChannelItem
       ContentChannelId: [363]
     MediaContentItem:
+      ContentChannelId: [23, 383, 384, 391, 390, 426]
       EntityType: ContentChannelItem
     UniversalContentItem:
       EntityType: ContentChannelItem
     WeekendContentItem:
-      ContentChannelId: [23, 383, 384, 391, 390]
       EntityType: ContentChannelItem
     ContentItem:
       EntityType: ContentChannelItem
@@ -136,6 +136,7 @@ ROCK_MAPPINGS:
     - 39 # Blog
     - 23 # Sermon Messages
     - 22 # Sermon Series
+    - 426 # 40 day challenge
     - 392
     - 393
     - 394
@@ -146,7 +147,7 @@ ROCK_MAPPINGS:
     - 390
     - 389
 
-  SERMON_CHANNEL_ID: 23
+  # SERMON_CHANNEL_ID: 23
 
 TABS:
   HOME:
@@ -161,9 +162,26 @@ TABS:
           arguments:
             limit: 1
             channelIds:
-              - 363
-      title: Daily Scripture
+              - 426
+      title: 40 Day Challenge
       type: VerticalCardList
+    - title: This Week # This pulls the 7 content items for 40 Day Challenge this week
+      subtitle: 40 Day Challenge
+      algorithms:
+        - type: WEEKLY_CONTENT_FEED
+          arguments:
+            channelIds:
+              - 426
+      type: ActionList
+      isCard: false
+    # - algorithms:
+    #     - type: CONTENT_FEED
+    #       arguments:
+    #         limit: 1
+    #         channelIds:
+    #           - 363
+    #   title: Daily Scripture
+    #   type: VerticalCardList
     - algorithms:
         - type: PRIORITY_CONTENT_FEED
           arguments:
@@ -183,7 +201,7 @@ TABS:
 
   WATCH:
     - algorithms:
-        - type: SERMON_CONTENT_FEED
+        - type: CONTENT_FEED
           arguments:
             channelIds:
               - 23
@@ -219,21 +237,21 @@ TABS:
           __typename: ContentChannel
           id: 401
           name: Post Script
-    - algorithms: # groups
+    - algorithms: # Transformation
         - type: CONTENT_FEED
           arguments:
             channelIds:
               - 392
             limit: 5
       type: HorizontalCardList
-      title: Groups
+      title: Transformation
       primaryAction:
         action: OPEN_CHANNEL
         title: 'View All'
         relatedNode:
           __typename: ContentChannel
           id: 392
-          name: Groups
+          name: Transformation
     - algorithms: # worship
         - type: CONTENT_FEED
           arguments:
@@ -371,20 +389,20 @@ TABS:
           __typename: ContentChannel
           id: 22
           name: Series
-    - algorithms: # groups
+    - algorithms: # Transformation
         - type: CONTENT_FEED
           arguments:
             channelIds:
               - 392
             limit: 5
       type: HorizontalCardList
-      title: Groups
+      title: Transformation
       primaryAction:
         action: OPEN_CHANNEL
         relatedNode:
           __typename: ContentChannel
           id: 392
-          name: Groups
+          name: Transformation
     - algorithms: # worship
         - type: CONTENT_FEED
           arguments:

@@ -25,9 +25,20 @@ class dataSource extends ContentItem.dataSource {
 
   _coreParentCursor = this.getCursorByParentContentItemId;
 
+  // TODO: This needs to be a core fix that if CHURCH_ONLINE is false, isLive returns false
+  // Remove this code once we have that in core.
+  getActiveLiveStreamContent = () =>
+    // Disables Livestream
+    [];
+
   getFeatures = async (item) => {
     const features = await super.getFeatures(item);
     const { Feature } = this.context.dataSources;
+
+    // They generally want buttons just below description text, so this moves buttons to the first feature.
+    if (features[features.length - 1]?.__typename === 'ButtonFeature') {
+      features.unshift(features.pop());
+    }
 
     if (item.contentChannelId === 23) {
       const cursor = await this._coreParentCursor(item.id);

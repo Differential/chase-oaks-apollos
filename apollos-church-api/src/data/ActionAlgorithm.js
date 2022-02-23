@@ -1,6 +1,13 @@
 import { get } from 'lodash';
-
 import { ActionAlgorithm } from '@apollosproject/data-connector-rock';
+import {
+  format,
+  formatISO,
+  previousSunday,
+  nextSaturday,
+  startOfTomorrow,
+  endOfYesterday,
+} from 'date-fns';
 
 const { resolver } = ActionAlgorithm;
 
@@ -11,6 +18,7 @@ class dataSource extends ActionAlgorithm.dataSource {
     PRIORITY_CONTENT_FEED: this.priorityContentFeedAlgorithm.bind(this),
     SERMON_CONTENT_FEED: this.sermonContentFeedAlgorithm.bind(this),
     TAGGED_CONTENT_FEED: this.taggedContentFeedAlgorithm.bind(this),
+    WEEKLY_CONTENT_FEED: this.weeklyContentFeedAlgorithm.bind(this),
   };
 
   async sermonContentFeedAlgorithm({
@@ -89,6 +97,45 @@ class dataSource extends ActionAlgorithm.dataSource {
       id: `${item.id}${i}`,
       title: item.title,
       subtitle: get(item, 'contentChannel.name'),
+      relatedNode: { ...item, __type: ContentItem.resolveType(item) },
+      image: ContentItem.getCoverImage(item),
+      action: 'READ_CONTENT',
+      summary: ContentItem.createSummary(item),
+    }));
+  }
+
+  async weeklyContentFeedAlgorithm({
+    category = '',
+    channelIds = [],
+    limit = 7,
+    skip = 0,
+  } = {}) {
+    const { ContentItem } = this.context.dataSources;
+
+    const items = (await Promise.all(
+      channelIds.map(async (channel) =>
+        ContentItem.request()
+          .filter(`ContentChannelId eq ${channel}`)
+          .cache({ ttl: 60 })
+          .orderBy('StartDateTime', 'asc')
+          .sort([{ field: 'StartDateTime', direction: 'asc' }])
+          .andFilter(
+            `((StartDateTime gt datetime'${formatISO(
+              previousSunday(startOfTomorrow())
+            )}') and (StartDateTime lt datetime'${formatISO(
+              nextSaturday(endOfYesterday())
+            )}'))`
+          )
+          .top(limit)
+          .skip(skip)
+          .get()
+      )
+    )).flat();
+
+    return items.map((item, i) => ({
+      id: `${item.id}${i}`,
+      title: item.title,
+      subtitle: format(new Date(item.startDateTime), 'E, MMM d') || '',
       relatedNode: { ...item, __type: ContentItem.resolveType(item) },
       image: ContentItem.getCoverImage(item),
       action: 'READ_CONTENT',

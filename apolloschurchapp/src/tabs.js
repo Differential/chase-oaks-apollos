@@ -16,9 +16,8 @@ import {
   ConnectScreenConnected,
 } from '@apollosproject/ui-connected';
 import { checkOnboardingStatusAndNavigate } from '@apollosproject/ui-onboarding';
-import ActionTable from '../ui/ActionTable';
-import ActionBar from '../ui/ActionBar';
-import tabBarIcon from './tabBarIcon';
+import ActionTable from './ui/ActionTable';
+import ActionBar from './ui/ActionBar';
 
 const HeaderLogo = withTheme(({ theme }) => ({
   style: {
@@ -28,8 +27,8 @@ const HeaderLogo = withTheme(({ theme }) => ({
   },
   source:
     theme.type === 'light'
-      ? require('./wordmarkLight.png')
-      : require('./wordmarkDark.png'),
+      ? require('./tabs/wordmarkLight.png')
+      : require('./tabs/wordmarkDark.png'),
 }))(Image);
 
 const SearchIcon = withTheme(({ theme: { colors, sizing: { baseUnit } } }) => ({
@@ -44,15 +43,18 @@ const SearchButton = ({ onPress }) => (
   </Touchable>
 );
 
-SearchButton.propTypes = {
-  onPress: PropTypes.func,
+const tabBarIcon = (name) => {
+  function TabBarIcon({ color }) {
+    return <Icon name={name} fill={color} size={24} />;
+  }
+  TabBarIcon.propTypes = {
+    color: PropTypes.string,
+  };
+  return TabBarIcon;
 };
 
 const Avatar = withTheme(({ theme: { sizing: { baseUnit } } }) => ({
-  size: 'small',
-  containerStyle: {
-    padding: baseUnit * 0.25,
-  },
+  size: 'xsmall',
 }))(UserAvatarConnected);
 
 const ProfileButton = ({ onPress }) => (
