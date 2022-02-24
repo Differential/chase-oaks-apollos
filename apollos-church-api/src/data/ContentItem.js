@@ -59,10 +59,7 @@ class dataSource extends ContentItem.dataSource {
                 action: 'READ_CONTENT',
                 relatedNode: {
                   __typename: 'UniversalContentItem',
-                  id: createGlobalId(
-                    discussionGuide.id,
-                    'UniversalContentItem'
-                  ),
+                  id: discussionGuide.id,
                 },
               },
             ],
