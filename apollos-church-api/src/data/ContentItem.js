@@ -2,7 +2,6 @@ import { ContentItem } from '@apollosproject/data-connector-rock';
 import moment from 'moment';
 import { isThisWeek } from 'date-fns';
 import ApollosConfig from '@apollosproject/config';
-import { createGlobalId } from '@apollosproject/server-core';
 
 const { ROCK } = ApollosConfig;
 
