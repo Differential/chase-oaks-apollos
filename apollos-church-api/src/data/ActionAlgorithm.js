@@ -105,6 +105,7 @@ class dataSource extends ActionAlgorithm.dataSource {
   }
 
   async weeklyContentFeedAlgorithm({
+    // eslint-disable-next-line no-unused-vars
     category = '',
     channelIds = [],
     limit = 7,

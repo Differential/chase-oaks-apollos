@@ -53,6 +53,7 @@ const StyledImageBackground = styled({ width: '100%', height: '100%' })(
 const Landing = () => {
   const navigation = useNavigation();
 
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   const onPressPrimary = useCallback(() => navigation.navigate('Auth'), [
     navigation.navigate,
   ]);
