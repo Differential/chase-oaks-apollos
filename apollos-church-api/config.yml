@@ -209,6 +209,21 @@ TABS:
             limit: 3
       type: VerticalCardList
       title: Next Steps
+    - algorithms: # Post Script
+        - type: CONTENT_FEED
+          arguments:
+            channelIds:
+              - 401
+            limit: 1
+      type: VerticalCardList
+      title: Post Script
+      primaryAction:
+        action: OPEN_CHANNEL
+        title: 'View All'
+        relatedNode:
+          __typename: ContentChannel
+          id: 401
+          name: Post Script      
 
   WATCH:
     - algorithms:
