@@ -208,7 +208,7 @@ TABS:
               - 371
             limit: 3
       type: VerticalCardList
-      title: Next Steps
+      title: Top 3
     - algorithms: # Post Script
         - type: CONTENT_FEED
           arguments:
