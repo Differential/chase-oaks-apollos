@@ -48,7 +48,7 @@
     "@apollosproject/react-native-airplay-btn": "^0.2.0",
     "@apollosproject/ui-analytics": "v2",
     "@apollosproject/ui-auth": "v2",
-    "@apollosproject/ui-connected": "v2",
+    "@apollosproject/ui-connected": "2.47.9",
     "@apollosproject/ui-fragments": "v2",
     "@apollosproject/ui-htmlview": "v2",
     "@apollosproject/ui-kit": "v2",
