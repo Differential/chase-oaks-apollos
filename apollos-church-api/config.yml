@@ -308,21 +308,21 @@ TABS:
           __typename: ContentChannel
           id: 395
           name: Kids
-#     - algorithms: # en espanol
-#         - type: CONTENT_FEED
-#           arguments:
-#             channelIds:
-#               - 393
-#             limit: 5
-#       type: HorizontalCardList
-#       title: En Español
-#       primaryAction:
-#         action: OPEN_CHANNEL
-#         title: 'View All'
-#         relatedNode:
-#           __typename: ContentChannel
-#           id: 393
-#           name: En Español
+    - algorithms: # en espanol
+        - type: CONTENT_FEED
+          arguments:
+            channelIds:
+              - 393
+            limit: 5
+      type: HorizontalCardList
+      title: En Español
+      primaryAction:
+        action: OPEN_CHANNEL
+        title: 'View All'
+        relatedNode:
+          __typename: ContentChannel
+          id: 393
+          name: En Español
 
   READ:
     - algorithms:
